@@ -19,13 +19,14 @@ public class Job {
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
 
-    // initialize a unique ID
-    public Job() {
-        id = nextId;
-        nextId++;
+    // assigns a unique ID to each job
+    public Job() { // constructor takes no parameters
+        id = nextId; // assigns value of nextId to id
+        nextId++; // increments nextId so each new employer gets a different id number
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+        this(); // calls the first constructor to initialize id
         this.name = name;
         this.employer = employer;
         this.location = location;
@@ -41,15 +42,14 @@ public class Job {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Job)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return getId() == job.getId();
+        return id == job.id;
     }
-
     // gives the id a unique hashcode
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(id);
     }
 
     // GETTERS AND SETTERS
