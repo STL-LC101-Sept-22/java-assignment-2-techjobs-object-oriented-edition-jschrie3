@@ -52,6 +52,58 @@ public class Job {
         return Objects.hash(id);
     }
 
+    // CUSTOM TOSTRING METHOD
+    // TODO 1: When passed a Job object, it should return a string that contains a blank line before
+    //  and after the job information.
+
+    @Override
+    public String toString() {
+
+        // TODO 3: If a field is empty, the method should add, “Data not available” after the label.
+        String emptyStatement = "Data not available";
+
+        if (name.equals("")) {
+            name = emptyStatement;
+        }
+        if (employer.getValue().equals("")) {
+            employer.setValue(emptyStatement);
+        }
+        if (location.getValue().equals("")) {
+            location.setValue(emptyStatement);
+        }
+        if (positionType.getValue().equals("")) {
+            positionType.setValue(emptyStatement);
+        }
+        if (coreCompetency.getValue().equals("")) {
+            coreCompetency.setValue(emptyStatement);
+        }
+
+        // TODO 2: The string should contain a label for each field, followed by the data stored in that
+        //  field. Each field should be on its own line.
+
+        String jobPost = String.format("\nID: %d\n" +
+                        "Name: %s\n" +
+                        "Employer: %s\n" +
+                        "Location: %s\n" +
+                        "Position Type: %s\n" +
+                        "Core Competency: %s\n",
+                id, name, employer, location, positionType, coreCompetency);
+
+        return jobPost;
+    }
+
+
+
+
+
+
+    // TODO 4: (Bonus) If a Job object ONLY contains data for the id field, the method should return,
+    //  “OOPS! This job does not seem to exist.”
+
+
+
+
+
     // GETTERS AND SETTERS
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.

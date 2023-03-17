@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 public class JobTest extends AbstractTest {
 
     // TEST THE EMPTY CONSTRUCTOR
-
     // TODO 1: In JobTest, define a test called testSettingJobId. Do not forget to annotate it with @Test.
 
     @Test
@@ -19,12 +18,11 @@ public class JobTest extends AbstractTest {
         Job testJob2 = new Job();
 
         // TODO 3: Use assertNotEquals to verify that the IDs of the two objects are distinct.
-        // assertNotEquals(Object, Object)
+
         assertNotEquals(testJob1, testJob2);
     }
 
     // TEST THE FULL CONSTRUCTOR
-
     // TODO 1: In JobTest, define a test called testJobConstructorSetsAllFields.
 
     @Test
@@ -53,7 +51,6 @@ public class JobTest extends AbstractTest {
     }
 
     // TEST THE EQUALS METHOD
-
     // TODO 1: In JobTest, define a test called testJobsForEquality.
 
     @Test
@@ -68,5 +65,52 @@ public class JobTest extends AbstractTest {
 
         assertNotEquals(testJob4.getId(), testJob5.getId());
     }
+
+    // CREATE FIRST TEST FOR TOSTRING
+    // TODO 1: In JobTest, add a new test named testToStringStartsAndEndsWithNewLine to check the first requirement.
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+
+        // TODO 2: Be sure to use assertEquals to verify that these characters are correct, and to use the exact
+        //  formatting demonstrated above.
+
+        // REQ 1: When passed a Job object, it should return a string that contains a blank line before
+        //  and after the job information.
+
+        // create a job object
+        Job jobTest6 = new Job("Analyst", new Employer("StartUp"), new Location("Swamp"), new PositionType("Data analysis"), new CoreCompetency("Detail oriented"));
+
+        // when passed a job object, toString should return a blank line before and after
+        // the job information string - using format specifiers because of string format method
+        String expected = String.format("\nID: %d\n" +
+                        "Name: %s\n" +
+                        "Employer: %s\n" +
+                        "Location: %s\n" +
+                        "Position Type: %s\n" +
+                        "Core Competency: %s\n",
+                jobTest6.getId(), jobTest6.getName(),
+                jobTest6.getEmployer(), jobTest6.getLocation(),
+                jobTest6.getPositionType(), jobTest6.getCoreCompetency());
+
+        assertEquals(expected, jobTest6.toString()); // call toString method on jobTest6
+    }
+
+    // FINISH TDD FOR TOSTRING
+    // TODO 1: Code a new test for the second required behavior, named testToStringContainsCorrectLabelsAndData.
+    //  Then run the tests to make sure the new one fails.
+
+    // REQ 2: The string should contain a label for each field, followed by the data stored in that field.
+    // Each field should be on its own line.
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {}
+
+    // TODO 3: Follow the same TDD process for the third requirement, creating a test named testToStringHandlesEmptyField.
+
+    // REQ 3: If a field is empty, the method should add, “Data not available” after the label.
+
+    @Test
+    public void testToStringHandlesEmptyField() {}
 
 }
