@@ -10,7 +10,7 @@ public class JobTest extends AbstractTest {
     // TODO 1: In JobTest, define a test called testSettingJobId. Do not forget to annotate it with @Test.
 
     @Test
-    public void testSettingJobId() {
+    public void testSettingJobId () {
 
         // TODO 2: Create two Job objects using the empty constructor.
 
@@ -19,7 +19,12 @@ public class JobTest extends AbstractTest {
 
         // TODO 3: Use assertNotEquals to verify that the IDs of the two objects are distinct.
 
-        assertNotEquals(testJob1, testJob2);
+        // create a spec to print message if test fails
+        String spec = "the IDs of testJobs 1 and 2 are NOT distinct";
+
+        assertNotEquals(spec, testJob1.getId(), testJob2.getId());
+        // trying both ways (switching unexpected and actual) just in case
+        assertNotEquals(spec, testJob2.getId(), testJob1.getId());
     }
 
     // TEST THE FULL CONSTRUCTOR
