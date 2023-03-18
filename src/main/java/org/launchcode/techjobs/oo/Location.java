@@ -49,7 +49,6 @@ public class Location {
     }
 
     // GETTERS AND SETTERS
-
     public int getId() {
         return id;
     }

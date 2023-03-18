@@ -104,13 +104,35 @@ public class JobTest extends AbstractTest {
     // Each field should be on its own line.
 
     @Test
-    public void testToStringContainsCorrectLabelsAndData() {}
+    public void testToStringContainsCorrectLabelsAndData() {
+        // create a job object
+        Job jobTest7 = new Job("Analyst", new Employer("StartUp"), new Location("Swamp"), new PositionType("Data analysis"), new CoreCompetency("Detail oriented"));
+        // set expected value
+        String expected = String.format("\nID: %d\n" +
+                        "Name: %s\n" +
+                        "Employer: %s\n" +
+                        "Location: %s\n" +
+                        "Position Type: %s\n" +
+                        "Core Competency: %s\n",
+                jobTest7.getId(), jobTest7.getName(),
+                jobTest7.getEmployer(), jobTest7.getLocation(),
+                jobTest7.getPositionType(), jobTest7.getCoreCompetency());
+        // call tostring method and test that it contains the expected value
+        assertTrue(jobTest7.toString().contains(expected));
+    }
 
     // TODO 3: Follow the same TDD process for the third requirement, creating a test named testToStringHandlesEmptyField.
 
     // REQ 3: If a field is empty, the method should add, “Data not available” after the label.
 
     @Test
-    public void testToStringHandlesEmptyField() {}
+    public void testToStringHandlesEmptyField() {
+        // create a job object - employer is empty
+        Job jobTest8 = new Job("Analyst", new Employer(""), new Location("Swamp"), new PositionType("Data analysis"), new CoreCompetency("Detail oriented"));
+        // set expected value
+        String expected = "Data not available";
+        // test if expected value is equal to the output for the empty field
+        assertTrue(expected.contains(jobTest8.getEmployer().getValue()));
+    }
 
 }
