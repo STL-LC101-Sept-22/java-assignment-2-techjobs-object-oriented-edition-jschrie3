@@ -1,16 +1,16 @@
 package org.launchcode.techjobs.oo;
 
 
-// CREATE A BASE CLASS
+// TASK 6: CREATE A BASE CLASS
 
 import java.util.Objects;
 
 // TODO 1: Create a new class called JobField in the package org.launchcode.techjobs.oo.
 // TODO 7: Finally, to prevent the creation of a JobField object, make this class abstract.
+
 public abstract class JobField {
 
     // TODO 2: Consider the following questions to help you decide what code to put in the JobField class:
-
     /*
 
     What fields do ALL FOUR of the classes have in common?
@@ -24,7 +24,6 @@ public abstract class JobField {
 
     Which custom methods are identical in ALL of the classes?
     * custom tostring, hashcode, and equals methods are present in all classes
-
 
     */
 
